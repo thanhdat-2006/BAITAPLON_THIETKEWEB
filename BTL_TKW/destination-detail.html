@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Điểm Đến - Viettravel</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS riêng cho trang chi tiết (có thể đưa vào style.css sau) */
+        .detail-header { position: relative; height: 400px; color: white; display: flex; align-items: flex-end; padding-bottom: 50px; }
+        .detail-header::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8)); z-index: 1; }
+        .header-content { position: relative; z-index: 2; text-align: center; width: 100%; }
+        .header-content h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        
+        .detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: 50px; }
+        .detail-box { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .detail-box h3 { color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.5rem; }
+        .detail-box ul li { margin-bottom: 10px; list-style: circle inside; }
+        
+        /* Ẩn ảnh sidebar */
+        .sidebar-img { display: none; }
+        
+        @media(max-width: 768px) { .detail-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logoweb.png" alt="Viettravel Logo" class="logo-img">
+            </a>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="destinations.html" class="active">Điểm đến</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="hotels.html">Dịch vụ</a></li>
+                    <li><a href="booking-history.html">Lịch sử</a></li>
+                    <li><a href="evaluations.html">Đánh giá</a></li>
+                    <li><a href="contact.html" class="btn-contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="detail-container">
+        <div style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+            <p>Đang tải thông tin địa điểm...</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="assets/images/logoweb.png" alt="Viettravel Logo">
+                </div>
+                <p>Thổi bùng đam mê du lịch và khám phá.</p>
+                <div id="footer-datetime" class="footer-datetime" aria-live="polite"></div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="destinations.html">Điểm đến</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="hotels.html">Dịch vụ</a></li>
+                    <li><a href="booking-history.html">Lịch sử</a></li>
+                    <li><a href="evaluations.html">Đánh giá</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Đối tác hợp tác</h4>
+                <div class="partners-list" aria-label="Đối tác hợp tác">
+                    <div class="partner-item">
+                        <a href="https://www.traveloka.com/vi-vn" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_1.jpg" alt="Đối tác 1">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.flightcentre.com.au/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_2.jpg" alt="Đối tác 2">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.ivivu.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_3.jpg" alt="Đối tác 3">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.americanexpress.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_4.jpg" alt="Đối tác 4">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Phương thức thanh toán</h4>
+                <div class="payments-list" aria-label="Đối tác thanh toán">
+                    <a href="https://www.visa.com" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_1.png" alt="Visa">
+                    </a>
+                    <a href="https://www.mastercard.com" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_2.png" alt="Mastercard">
+                    </a>
+                    <a href="https://www.vn.jcb/vi/index.html" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_3.png" alt="JCB">
+                    </a>
+                    <a href="https://www.momo.vn/" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_4.png" alt="Momo">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Viettravel. All rights reserved.|Support 24/24</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
