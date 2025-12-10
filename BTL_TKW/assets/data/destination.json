@@ -1,0 +1,144 @@
+{
+  "regions": [
+    {
+      "id": "mien-bac",
+      "name": "Miền Bắc",
+      "description": "Hùng vĩ với Sapa, Hạ Long và nét cổ kính Hà Nội.",
+      "image": "https://images.unsplash.com/photo-1557750255-c76072a7aad1?auto=format&fit=crop&w=800&q=80",
+      "link": "destinations.html?region=north"
+    },
+    {
+      "id": "mien-trung",
+      "name": "Miền Trung",
+      "description": "Di sản Hội An, Kinh thành Huế và biển Đà Nẵng.",
+      "image": "https://images.unsplash.com/photo-1664333039578-28ad613ee536?auto=format&fit=crop&w=800&q=80",
+      "link": "destinations.html?region=central"
+    },
+    {
+      "id": "mien-nam",
+      "name": "Miền Nam",
+      "description": "Sôi động Sài Gòn và miền Tây sông nước hữu tình.",
+      "image": "https://images.unsplash.com/photo-1598544919456-fcb105fa7a6f?auto=format&fit=crop&w=800&q=80",
+      "link": "destinations.html?region=south"
+    }
+  ],
+  "places": [
+    { 
+      "id": "hanoi",
+      "name": "Hà Nội", 
+      "region": "north", 
+      "img": "https://images.unsplash.com/photo-1710141968143-7ea1f6d89025?auto=format&fit=crop&w=800&q=80", 
+      "desc": "Thủ đô ngàn năm văn hiến, nơi hội tụ tinh hoa văn hóa.",
+      "details": {
+        "intro": "Hà Nội không chỉ là thủ đô mà còn là nơi lưu giữ những giá trị lịch sử lâu đời. Đến đây, bạn sẽ cảm nhận được sự giao thoa giữa nét cổ kính và nhịp sống hiện đại.",
+        "visit": "Lăng Chủ tịch Hồ Chí Minh, Văn Miếu Quốc Tử Giám, Hồ Gươm, Phố cổ, Hoàng thành Thăng Long.",
+        "culture": "Nét văn hóa 'Trà đá vỉa hè', gánh hàng rong và sự thanh lịch của người Tràng An.",
+        "food": "Phở bò, Bún chả (Obama), Chả cá Lã Vọng, Cà phê trứng Giảng."
+      }
+    },
+    { 
+      "id": "halong",
+      "name": "Hạ Long", 
+      "region": "north", 
+      "img": "https://images.unsplash.com/photo-1643029891412-92f9a81a8c16?auto=format&fit=crop&w=800&q=80", 
+      "desc": "Kỳ quan thiên nhiên thế giới với hàng nghìn đảo đá vôi.",
+      "details": {
+        "intro": "Vịnh Hạ Long là niềm tự hào của du lịch Việt Nam, được UNESCO công nhận là di sản thiên nhiên thế giới.",
+        "visit": "Hang Sửng Sốt, Đảo Ti Tốp, Làng chài Cửa Vạn, Công viên Sun World.",
+        "culture": "Văn hóa làng chài ven biển đặc sắc và lễ hội Carnival Hạ Long sôi động.",
+        "food": "Chả mực Hạ Long, Sá sùng, Hàu nướng, Bún bề bề."
+      }
+    },
+    {
+      "id": "ninhbinh",
+      "name": "Ninh Bình",
+      "region": "north",
+      "img": "https://images.unsplash.com/photo-1606625379124-3882167b827b?auto=format&fit=crop&w=800&q=80",
+      "desc": "Vùng đất cố đô địa linh nhân kiệt, được ví như 'Vịnh Hạ Long trên cạn'.",
+      "details": {
+        "intro": "Ninh Bình sở hữu Quần thể danh thắng Tràng An - Di sản Văn hóa và Thiên nhiên kép đầu tiên của Đông Nam Á được UNESCO công nhận.",
+        "visit": "Quần thể danh thắng Tràng An, Chùa Bái Đính, Tam Cốc - Bích Động, Hang Múa, Cố đô Hoa Lư.",
+        "culture": "Nơi lưu giữ dấu ấn lịch sử hào hùng của kinh đô xưa và các lễ hội tâm linh truyền thống đặc sắc.",
+        "food": "Dê núi Ninh Bình, Cơm cháy, Ốc núi, Miến lươn, Rượu Kim Sơn."
+      }
+    },
+    {
+      "id": "quangbinh",
+      "name": "Quảng Bình(Quảng Trị)",
+      "region": "central",
+      "img": "https://images.unsplash.com/photo-1758298134993-743b156eb23a?auto=format&fit=crop&w=800&q=80",
+      "desc": "Được mệnh danh là 'Vương quốc hang động' với hệ thống địa chất tráng lệ.",
+      "details": {
+        "intro": "Quảng Bình là điểm đến hấp dẫn với Vườn quốc gia Phong Nha - Kẻ Bàng, di sản thiên nhiên thế giới chứa đựng những hang động kỳ vĩ nhất hành tinh.",
+        "visit": "Động Phong Nha, Động Thiên Đường, Hang Sơn Đoòng, Biển Nhật Lệ, Suối Nước Moọc, Vũng Chùa - Đảo Yến.",
+        "culture": "Vùng đất địa linh nhân kiệt, nơi giao thoa văn hóa lâu đời và lưu giữ nhiều di tích lịch sử hào hùng thời mở cõi.",
+        "food": "Cháo canh cá lóc, Bánh bột lọc, Khoai deo, Đẻn biển, Lẩu cá khoai."
+      }
+    },
+    { 
+      "id": "danang",
+      "name": "Đà Nẵng", 
+      "region": "central", 
+      "img": "https://images.unsplash.com/photo-1505018620898-92616e1849cc?auto=format&fit=crop&w=800&q=80", 
+      "desc": "Thành phố đáng sống nhất Việt Nam với những cây cầu huyền thoại.",
+      "details": {
+        "intro": "Đà Nẵng là sự kết hợp hoàn hảo giữa núi, biển và đô thị hiện đại. Nơi đây nổi tiếng với sự thân thiện và môi trường trong lành.",
+        "visit": "Bà Nà Hills (Cầu Vàng), Biển Mỹ Khê, Ngũ Hành Sơn, Cầu Rồng phun lửa.",
+        "culture": "Lễ hội Pháo hoa Quốc tế Đà Nẵng (DIFF) và văn hóa hiếu khách.",
+        "food": "Mì Quảng, Bánh tráng thịt heo, Hải sản tươi sống, Bún chả cá."
+      }
+    },
+    { 
+      "id": "hoian",
+      "name": "Hội An", 
+      "region": "central", 
+      "img": "https://images.unsplash.com/photo-1558334466-afce6bf36c69?auto=format&fit=crop&w=800&q=80", 
+      "desc": "Phố cổ nhuốm màu thời gian bên dòng sông Hoài thơ mộng.",
+      "details": {
+        "intro": "Hội An như một bức tranh mộc mạc, giản dị và nên thơ. Dù là ngày hay đêm, Hội An vẫn mang trong mình những vẻ đẹp lôi cuốn khác nhau.",
+        "visit": "Chùa Cầu, Hội quán Phúc Kiến, Nhà cổ Tấn Ký, Chợ đêm Hội An.",
+        "culture": "Lễ hội thả đèn hoa đăng và nghệ thuật Bài Chòi dân gian.",
+        "food": "Cao lầu, Cơm gà Hội An, Bánh mì Phượng, Nước Mót."
+      }
+    },
+    {
+      "id": "dalat",
+      "name": "Đà Lạt",
+      "region": "central",
+      "img": "https://images.unsplash.com/photo-1586595276832-b6840c79bdfc?auto=format&fit=crop&w=800&q=80",
+      "desc": "Thành phố ngàn hoa trong sương, điểm đến lãng mạn với khí hậu ôn đới mát mẻ quanh năm.",
+      "details": {
+        "intro": "Đà Lạt nổi tiếng với vẻ đẹp mộng mơ, những rừng thông bạt ngàn và kiến trúc Pháp cổ kính, được mệnh danh là tiểu Paris giữa cao nguyên.",
+        "visit": "Quảng trường Lâm Viên, Hồ Xuân Hương, Đỉnh Langbiang, Thung lũng Tình Yêu, Thiền viện Trúc Lâm, Ga Đà Lạt.",
+        "culture": "Không gian văn hóa cồng chiêng Tây Nguyên độc đáo và Festival Hoa Đà Lạt rực rỡ sắc màu.",
+        "food": "Bánh tráng nướng, Lẩu gà lá é, Bánh căn, Kem bơ, Sữa đậu nành nóng, Hồng treo gió."
+      }
+    },
+    { 
+      "id": "saigon",
+      "name": "TP. Hồ Chí Minh", 
+      "region": "south", 
+      "img": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80", 
+      "desc": "Hòn ngọc Viễn Đông sôi động và sầm uất bậc nhất cả nước.",
+      "details": {
+        "intro": "Sài Gòn là thành phố không ngủ, nơi bạn có thể tìm thấy mọi thứ từ những tòa nhà chọc trời đến những con hẻm ẩm thực lâu đời.",
+        "visit": "Dinh Độc Lập, Nhà thờ Đức Bà, Phố đi bộ Nguyễn Huệ, Landmark 81.",
+        "culture": "Văn hóa cà phê bệt và nhịp sống hối hả, năng động.",
+        "food": "Cơm tấm Sài Gòn, Hủ tiếu Nam Vang, Bánh mì Huỳnh Hoa, Ốc các loại."
+      }
+    },
+    {
+      "id": "Kiengiang",
+      "name": "Kiên Giang(An Giang)",
+      "region": "south",
+      "img": "https://images.unsplash.com/photo-1693294603830-f44c9511d643?auto=format&fit=crop&w=800&q=80",
+      "desc": "Thiên đường biển đảo vùng Tây Nam Bộ, nổi danh với 'Đảo Ngọc' Phú Quốc.",
+      "details": {
+        "intro": "Kiên Giang sở hữu Khu dự trữ sinh quyển thế giới và những bãi biển tuyệt đẹp, là điểm hẹn lý tưởng cho du lịch nghỉ dưỡng đẳng cấp.",
+        "visit": "Đảo Phú Quốc (VinWonders, Grand World), Quần đảo Nam Du, Hà Tiên, Hòn Sơn, Vườn quốc gia U Minh Thượng.",
+        "culture": "Nơi giao thoa văn hóa đặc sắc của ba dân tộc Kinh - Hoa - Khmer cùng các lễ hội truyền thống vùng sông nước.",
+        "food": "Gỏi cá trích, Bún quậy, Bún kèn, Cơm ghẹ, Nước mắm Phú Quốc, Rượu sim."
+      }
+    }
+  ]
+}
