@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi Tiết Tour - Viettravel</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img
+            src="assets/images/logoweb.png"
+            alt="Viettravel Logo"
+            class="logo-img"
+          />
+        </a>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="destinations.html">Điểm đến</a></li>
+            <li><a href="tours.html" class="active">Tours</a></li>
+            <li><a href="hotels.html">Dịch vụ</a></li>
+            <li><a href="booking-history.html">Lịch sử</a></li>
+            <li><a href="evaluations.html">Đánh giá</a></li>
+            <li><a href="contact.html" class="btn-contact">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div
+      id="tour-detail-container"
+      class="container"
+      style="margin-top: 100px; margin-bottom: 60px"
+    >
+      <h1
+        id="detail-name"
+        style="
+          text-align: center;
+          color: var(--secondary-color);
+          margin-bottom: 40px;
+          text-transform: uppercase;
+          font-size: 2rem;
+        "
+      >
+        Đang tải...
+      </h1>
+
+      <div class="row-flex">
+        <div class="col-left">
+          <div class="detail-box-wrapper">
+            <h3 class="box-heading">Giới Thiệu</h3>
+
+            <div class="tour-highlight-info">
+              <p>
+                <i class="fas fa-bus"></i> <strong>Phương tiện:</strong>
+                <span id="detail-transport">...</span>
+              </p>
+              <p>
+                <i class="fas fa-clock"></i> <strong>Thời gian:</strong>
+                <span id="detail-time">...</span>
+              </p>
+              <p>
+                <i class="fas fa-tag"></i> <strong>Giá tour:</strong>
+                <span id="detail-price" class="highlight-price">...</span>
+              </p>
+              <button
+                class="btn-primary"
+                style="margin-top: 15px"
+                onclick="openBookingModal()"
+              >
+                Đặt Tour Ngay
+              </button>
+            </div>
+
+            <div id="detail-intro" class="text-content"></div>
+          </div>
+
+          <div class="detail-box-wrapper" style="margin-top: 30px">
+            <h3 class="box-heading">Lịch Trình Tour</h3>
+            <div id="detail-schedule"></div>
+          </div>
+        </div>
+
+        <div class="col-right">
+          <div class="sidebar-wrapper">
+            <h4 class="sidebar-heading">Các Tour Nổi Bật Khác</h4>
+            <div id="related-tours-list" class="related-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Đặt Tour -->
+    <div id="booking-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>Đặt Tour Du Lịch</h3>
+        <p
+          id="selected-tour-name"
+          style="margin-bottom: 15px; color: #00b894; font-weight: bold"
+        ></p>
+
+        <form id="booking-form">
+          <div class="form-group">
+            <label>Họ và tên:</label>
+            <input
+              type="text"
+              id="cus-name"
+              required
+              placeholder="Nhập tên của bạn"
+            />
+          </div>
+          <div class="form-group">
+            <label>Số điện thoại:</label>
+            <input type="tel" id="cus-phone" required placeholder="Nhập SĐT" />
+          </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              id="cus-email"
+              required
+              placeholder="Nhập email"
+            />
+          </div>
+          <div class="form-group">
+            <label>Ngày khởi hành:</label>
+            <input type="date" id="start-date" required />
+          </div>
+          <div class="form-group">
+            <label>Số người:</label>
+            <input type="number" id="cus-people" min="1" value="1" required />
+          </div>
+          <button
+            type="submit"
+            class="btn-primary"
+            style="width: 100%; border: none; cursor: pointer"
+          >
+            Xác Nhận
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+
+    <script>
+    // Xử lý form đặt tour trên trang chi tiết
+    (function() {
+        const bookingForm = document.getElementById('booking-form');
+        const modal = document.getElementById('booking-modal');
+        const closeBtn = document.querySelector('.close-btn');
+
+        if (!bookingForm) return;
+
+        // Đóng modal khi bấm X
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        }
+
+        // Đóng modal khi bấm ra ngoài
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Form submission được xử lý bởi main.js
+        // Chỉ cần đóng modal sau khi submit
+        bookingForm.addEventListener('submit', function(e) {
+            // Delay để main.js xử lý trước
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 100);
+        });
+    })();
+    </script>
+  </body>
+
+  <footer>
+       <div class="container footer-content">
+            <div class="footer-col">
+                 <div class="footer-logo">
+        <img src="assets/images/logoweb.png" alt="Viettravel Logo">
+    </div>
+                <p>Thổi bùng đam mê du lịch và khám phá.</p>
+                 <div id="footer-datetime" class="footer-datetime" aria-live="polite"></div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="destinations.html">Điểm đến</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="hotels.html">Dịch vụ</a></li>
+                    <li><a href="booking-history.html">Lịch sử</a></li>
+                    <li><a href="evaluations.html">Đánh giá</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Đối tác hợp tác</h4>
+                <div class="partners-list" aria-label="Đối tác hợp tác">
+                    <div class="partner-item">
+                        <a href="https://www.traveloka.com/vi-vn" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_1.jpg" alt="Đối tác 1">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.flightcentre.com.au/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_2.jpg" alt="Đối tác 2">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.ivivu.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_3.jpg" alt="Đối tác 3">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.americanexpress.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_4.jpg" alt="Đối tác 4">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Phương thức thanh toán</h4>
+                <div class="payments-list" aria-label="Đối tác thanh toán">
+                    <a href="https://www.visa.com" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_1.png" alt="Visa">
+                    </a>
+                    <a href="https://www.mastercard.com" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_2.png" alt="Mastercard">
+                    </a>
+                    <a href="https://www.vn.jcb/vi/index.html" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_3.png" alt="JCB">
+                    </a>
+                    <a href="https://www.momo.vn/" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_4.png" alt="Momo">
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Viettravel. All rights reserved.|Support 24/24</p>
+        </div>
+      </footer>
+</html>
