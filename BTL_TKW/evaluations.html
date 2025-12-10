@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lịch Sử Đánh Giá - Viettravel</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .eval-table { width:100%; border-collapse:collapse; }
+        .eval-table th, .eval-table td { padding:10px 14px; border-bottom:1px solid #eee; text-align:left; vertical-align:middle; }
+        .empty { text-align:center; padding:40px 0; color:#666; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="assets/images/logoweb.png" alt="Viettravel" class="logo-img"></a></div>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="destinations.html">Điểm đến</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="hotels.html">Dịch vụ</a></li>
+                    <li><a href="booking-history.html">Lịch sử</a></li>
+                    <li><a href="evaluations.html" class="active">Đánh giá</a></li>
+                    <li><a href="contact.html" class="btn-contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content"><h2>Lịch Sử Đánh Giá</h2></div>
+    </section>
+
+    <main class="section-padding container">
+        <div style="max-width:1100px; margin:0 auto;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+                <h3>Đã gửi đánh giá</h3>
+                <div>
+                    <button id="clear-all" class="btn-delete" style="display:none;">Xóa tất cả</button>
+                </div>
+            </div>
+
+            <div id="list-wrap"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                 <div class="footer-logo">
+        <img src="assets/images/logoweb.png" alt="Viettravel Logo">
+        </div>
+                <p>Thổi bùng đam mê du lịch và khám phá.</p>
+                 <div id="footer-datetime" class="footer-datetime" aria-live="polite"></div>
+            </div>
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="destinations.html">Điểm đến</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="hotels.html">Dịch vụ</a></li>
+                    <li><a href="booking-history.html">Lịch sử</a></li>
+                    <li><a href="evaluations.html">Đánh giá</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Đối tác hợp tác</h4>
+                <div class="partners-list" aria-label="Đối tác hợp tác">
+                    <div class="partner-item">
+                        <a href="https://www.traveloka.com/vi-vn" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_1.jpg" alt="Đối tác 1">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.flightcentre.com.au/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_2.jpg" alt="Đối tác 2">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.ivivu.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_3.jpg" alt="Đối tác 3">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.americanexpress.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_4.jpg" alt="Đối tác 4">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Phương thức thanh toán</h4>
+                <div class="payments-list" aria-label="Đối tác thanh toán">
+                    <a href="https://www.visa.com" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_1.png" alt="Visa">
+                    </a>
+                    <a href="https://www.mastercard.com" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_2.png" alt="Mastercard">
+                    </a>
+                    <a href="https://www.vn.jcb/vi/index.html" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_3.png" alt="JCB">
+                    </a>
+                    <a href="https://www.momo.vn/" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_4.png" alt="Momo">
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Viettravel. All rights reserved.|Support 24/24</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Hiển thị thời gian ở footer
+        function updateFooterDatetime() {
+            const el = document.getElementById('footer-datetime');
+            if (!el) return;
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('vi-VN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            const timeStr = now.toLocaleTimeString('vi-VN', { hour12: false });
+            el.textContent = `${dateStr} — ${timeStr}`;
+        }
+        updateFooterDatetime();
+        setInterval(updateFooterDatetime, 1000);
+
+        const KEY = 'evaluations';
+
+        // Hàm định dạng ngày robust:
+        // - Hỗ trợ ISO strings, "yyyy-mm-dd hh:mm:ss" (chuyển space->T), dd/mm/yyyy, unix timestamps (10 or 13 digits)
+        // - Trả về chuỗi định dạng dd-mm-yyyy nếu hợp lệ, ngược lại trả về chuỗi rỗng (không hiển thị '—')
+        function formatDate(input) {
+            if (input === null || input === undefined || input === '') return '';
+            try {
+                let d = null;
+                const raw = String(input).trim();
+
+                // Nếu là chuỗi chỉ gồm chữ số (timestamp)
+                if (/^\d+$/.test(raw)) {
+                    let n = Number(raw);
+                    // 10 chữ số -> giây, nhân 1000
+                    if (raw.length === 10) n = n * 1000;
+                    // 13 chữ số -> mili giây (dùng trực tiếp)
+                    d = new Date(n);
+                } else {
+                    // Chuyển "yyyy-mm-dd hh:mm:ss" -> "yyyy-mm-ddThh:mm:ss" để Date.parse dễ nhận
+                    let s = raw;
+                    if (/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/.test(s)) {
+                        s = s.replace(' ', 'T');
+                    }
+                    // Chuyển "dd/mm/yyyy" -> "yyyy-mm-dd"
+                    if (/^\d{2}\/\d{2}\/\d{4}$/.test(s)) {
+                        const parts = s.split('/');
+                        s = `${parts[2]}-${parts[1]}-${parts[0]}`;
+                    }
+                    d = new Date(s);
+                    if (isNaN(d.getTime())) {
+                        // thử parse thô
+                        const parsed = Date.parse(s);
+                        if (!isNaN(parsed)) d = new Date(parsed);
+                    }
+                }
+
+                if (!d || isNaN(d.getTime())) return '';
+                const dd = String(d.getDate()).padStart(2, '0');
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const yyyy = d.getFullYear();
+                return `${dd}-${mm}-${yyyy}`;
+            } catch (e) {
+                console.error('formatDate error for input=', input, e);
+                return '';
+            }
+        }
+
+        function render() {
+            const wrap = document.getElementById('list-wrap');
+            const allData = JSON.parse(localStorage.getItem(KEY) || '[]');
+            // BỎ SORT — giữ nguyên thứ tự gốc (tour cũ nhất = #1)
+            const data = allData.slice(); // chỉ copy, không sort
+
+            if (!data.length) {
+                wrap.innerHTML = '<div class="empty">Chưa có đánh giá nào.</div>';
+                return;
+            }
+
+            let html = '<table class="eval-table"><thead><tr><th>#</th><th>Đơn / Tour</th><th>Điểm</th><th>Ngày</th></tr></thead><tbody>';
+            data.forEach((it, i) => {
+                const idx = i + 1;
+                const booking = it.order || it.bookingId || '(n/a)';
+                const tourIcon = it.tourName ? '<i class="fas fa-map-pin" style="color:#00b894; margin-right:6px;"></i>' : '';
+                const tourName = it.tourName ? it.tourName : '';
+                const rating = it.rating || '';
+                const dateRaw = it.date || it.createdAt || it.timestamp || '';
+                const date = dateRaw ? formatDate(dateRaw) : '';
+                html += `<tr data-i="${i}">
+                    <td>#${idx}</td>
+                    <td>${booking}${tourIcon}${tourName}</td>
+                    <td>${rating}</td>
+                    <td>${date}</td>
+                </tr>`;
+            });
+            html += '</tbody></table>';
+            wrap.innerHTML = html;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // render() nếu có trong file cũ
+            if (typeof render === 'function') render();
+
+            const clearBtn = document.getElementById('clear-all');
+            // danh sách key thường dùng cho đánh giá — thêm/bớt nếu bạn dùng key khác
+            const candidateKeys = [
+                (typeof EVAL_KEY !== 'undefined' && EVAL_KEY) || null,
+                (typeof KEY !== 'undefined' && KEY) || null,
+                'evaluations', 'reviews', 'ratings', 'userReviews', 'submittedReviews', 'evaluationsList'
+            ].filter(Boolean);
+
+            let foundKey = null;
+            for (const k of candidateKeys) {
+                try {
+                    const raw = localStorage.getItem(k);
+                    if (!raw) continue;
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed) && parsed.length > 0) { foundKey = k; break; }
+                } catch (e) { /* ignore */ }
+            }
+
+            if (foundKey) {
+                clearBtn.style.display = '';
+                clearBtn.dataset.key = foundKey;
+            }
+
+            clearBtn.addEventListener('click', () => {
+                const key = clearBtn.dataset.key || candidateKeys[0];
+                if (!key) return;
+                if (!confirm('Xóa tất cả đánh giá?')) return;
+                localStorage.removeItem(key);
+                if (typeof render === 'function') render();
+                clearBtn.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dịch vụ - Viettravel</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logoweb.png" alt="Viettravel Logo" class="logo-img">
+                </a>
+            </div>
+            <button id="nav-toggle" class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="destinations.html">Điểm đến</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="hotels.html" class="active">Dịch vụ</a></li>
+                    <li><a href="booking-history.html">Lịch sử</a></li>
+                    <li><a href="evaluations.html">Đánh giá</a></li>
+                    <li><a href="contact.html" class="btn-contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="banner-content">
+            <h2>Khách Sạn - Nhà Hàng - Resort</h2>
+            <p>Lựa chọn nơi lưu trú hoàn hảo cho chuyến đi của bạn</p>
+        </div>
+    </section>
+
+    <section class="section-padding container">
+        <div class="section-title">
+            <h3>Danh Sách Dịch Vụ</h3>
+            <p>Những điểm lưu trú chất lượng cao trên khắp Việt Nam</p>
+            
+            <div class="filters-wrapper" style="margin-top: 30px; display: flex; flex-direction: column; gap: 20px;">
+                <div class="filters" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                    <button class="filter-btn active" data-filter="all">Tất cả</button>
+                    <button class="filter-btn" data-filter="north">Miền Bắc</button>
+                    <button class="filter-btn" data-filter="central">Miền Trung</button>
+                    <button class="filter-btn" data-filter="south">Miền Nam</button>
+                </div>
+
+                <div class="type-filters" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                    <button class="type-btn active" data-type="all">Tất cả loại</button>
+                    <button class="type-btn" data-type="hotel">Khách Sạn</button>
+                    <button class="type-btn" data-type="resort">Resort</button>
+                    <button class="type-btn" data-type="restaurant">Nhà Hàng</button>
+                </div>
+
+                <div class="sort-box" style="display: flex; justify-content: center; align-items: center; gap: 15px;">
+                    <label style="font-weight: 600; color: #333;">Sắp xếp:</label>
+                    <select id="sort-select" style="padding: 10px 20px; border-radius: 8px; border: 2px solid var(--primary-color); background: #fff; color: #333; font-weight: 500; cursor: pointer; transition: all 0.3s ease; min-width: 200px;">
+                        <option value="default">Mặc định</option>
+                        <option value="price-asc">Giá: Thấp → Cao</option>
+                        <option value="price-desc">Giá: Cao → Thấp</option>
+                        <option value="rating">Đánh giá cao nhất</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-grid" id="hotels-container">
+            <!-- Khách Sạn -->
+            <div class="hotel-card" onclick="viewHotelDetail(1)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/halong-premium.jpg" alt="Hạ Long Premium Hotel">
+                    <div class="hotel-card-rating">⭐ 4.8</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Hạ Long Premium Hotel</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Khách sạn</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Hạ Long, Quảng Ninh</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Bể bơi</span><span class="hotel-card-amenity">Nhà hàng</span></div>
+                    <div class="hotel-card-price">1,200,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(2)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/sapa-resort.jpg" alt="Sapa Mountain Resort">
+                    <div class="hotel-card-rating">⭐ 4.6</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Sapa Mountain Resort</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Resort</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Sapa, Lào Cai</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Trekking guide</span><span class="hotel-card-amenity">Quán cà phê</span></div>
+                    <div class="hotel-card-price">950,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(3)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/hanoi-heritage.jpg" alt="Hà Nội Heritage Hotel">
+                    <div class="hotel-card-rating">⭐ 4.5</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Hà Nội Heritage Hotel</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Khách sạn</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Hà Nội</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">WiFi</span><span class="hotel-card-amenity">Nhà hàng</span></div>
+                    <div class="hotel-card-price">850,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(4)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/danang-resort.jpg" alt="Đà Nẵng Beachfront Resort">
+                    <div class="hotel-card-rating">⭐ 4.7</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Đà Nẵng Beachfront Resort</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Resort</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Đà Nẵng</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Bãi biển riêng</span><span class="hotel-card-amenity">Bể bơi</span></div>
+                    <div class="hotel-card-price">1,150,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(5)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/hoian-ancient.jpg" alt="Hội An Ancient Town Hotel">
+                    <div class="hotel-card-rating">⭐ 4.4</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Hội An Ancient Town Hotel</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Khách sạn</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Hội An, Quảng Nam</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Phố cổ</span><span class="hotel-card-amenity">Quán trà</span></div>
+                    <div class="hotel-card-price">780,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(6)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/hcm-luxury.jpg" alt="TP.HCM Luxury Tower">
+                    <div class="hotel-card-rating">⭐ 4.9</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">TP.HCM Luxury Tower</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Khách sạn</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Quận 1, TP.HCM</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Rooftop bar</span><span class="hotel-card-amenity">Spa</span></div>
+                    <div class="hotel-card-price">1,350,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(7)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/cantho-resort.jpg" alt="Cần Thơ Mekong Delta Resort">
+                    <div class="hotel-card-rating">⭐ 4.3</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Cần Thơ Mekong Delta Resort</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Resort</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Cần Thơ</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Tour sông</span><span class="hotel-card-amenity">Quán cà phê</span></div>
+                    <div class="hotel-card-price">620,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(8)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/bensong-res.jpg" alt="Nhà Hàng Bến Sông">
+                    <div class="hotel-card-rating">⭐ 4.6</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Nhà Hàng Bến Sông</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Nhà hàng</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Hạ Long, Quảng Ninh</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Hải sản tươi</span><span class="hotel-card-amenity">View vịnh</span></div>
+                    <div class="hotel-card-price">150,000đ - 450,000đ</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(9)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/phuquoc-paradise.jpg" alt="Phú Quốc Paradise Resort">
+                    <div class="hotel-card-rating">⭐ 4.9</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Phú Quốc Paradise Resort</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Resort</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Phú Quốc, Kiên Giang</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Bãi biển riêng</span><span class="hotel-card-amenity">Spa</span></div>
+                    <div class="hotel-card-price">2,200,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(10)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/hue-riverside.jpg" alt="Huế Riverside Hotel">
+                    <div class="hotel-card-rating">⭐ 4.2</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Huế Riverside Hotel</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Khách sạn</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Huế, Thừa Thiên Huế</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">WiFi</span><span class="hotel-card-amenity">Xe đạp</span></div>
+                    <div class="hotel-card-price">680,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(11)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/pho-ban-dan.jpg" alt="Phở Bát Đàn - Chi Nhánh Huế">
+                    <div class="hotel-card-rating">⭐ 4.5</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Phở Bát Đàn - Huế</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Nhà hàng</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Huế, Thừa Thiên Huế</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Phở truyền thống</span><span class="hotel-card-amenity">Ấm cúng</span></div>
+                    <div class="hotel-card-price">60,000đ - 120,000đ</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(12)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/ninhvanbay.jpg" alt="Ninh Vân Bay Retreat">
+                    <div class="hotel-card-rating">⭐ 4.8</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Ninh Vân Bay Retreat</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Resort</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Nha Trang, Khánh Hòa</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Spa</span><span class="hotel-card-amenity">Sea-view villa</span></div>
+                    <div class="hotel-card-price">2,800,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(13)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/comtayho.jpg" alt="Quán Cơm Tây Hồ">
+                    <div class="hotel-card-rating">⭐ 4.4</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Quán Cơm Tây Hồ</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Nhà hàng</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Hà Nội</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Ăn gia đình</span><span class="hotel-card-amenity">Takeaway</span></div>
+                    <div class="hotel-card-price">80,000đ - 200,000đ</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(14)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/mekong-boutique.jpg" alt="Mekong Boutique Hotel">
+                    <div class="hotel-card-rating">⭐ 4.1</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Mekong Boutique Hotel</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Khách sạn</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Mỹ Tho, Tiền Giang</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">WiFi</span><span class="hotel-card-amenity">Bữa sáng</span></div>
+                    <div class="hotel-card-price">540,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(15)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/dalat-pine.jpg" alt="Đà Lạt Pine Resort">
+                    <div class="hotel-card-rating">⭐ 4.6</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Đà Lạt Pine Resort</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Resort</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Đà Lạt, Lâm Đồng</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Garden</span><span class="hotel-card-amenity">Bungalow</span></div>
+                    <div class="hotel-card-price">1,050,000đ/đêm</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+
+            <div class="hotel-card" onclick="viewHotelDetail(16)">
+                <div class="hotel-card-image">
+                    <img src="assets/images/hotels/buncha-huonglien.jpg" alt="Nhà Hàng Bún Chả Hương Liên">
+                    <div class="hotel-card-rating">⭐ 4.7</div>
+                </div>
+                <div class="hotel-card-info">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                        <div class="hotel-card-name">Bún Chả Hương Liên</div>
+                        <div class="hotel-card-type" style="font-size:0.85rem; color:#fff; background:var(--primary-color); padding:6px 10px; border-radius:6px;">Nhà hàng</div>
+                    </div>
+                    <div class="hotel-card-location"><i class="fas fa-map-marker-alt"></i> Hà Nội</div>
+                    <div class="hotel-card-amenities"><span class="hotel-card-amenity">Ăn tại chỗ</span><span class="hotel-card-amenity">Mang đi</span></div>
+                    <div class="hotel-card-price">70,000đ - 150,000đ</div>
+                    <button class="hotel-card-button">Xem Chi Tiết</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="assets/images/logoweb.png" alt="Viettravel Logo">
+                </div>
+                <p>Thổi bùng đam mê du lịch và khám phá.</p>
+                <div id="footer-datetime" class="footer-datetime" aria-live="polite"></div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Liên kết</h4>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="destinations.html">Điểm đến</a></li>
+                    <li><a href="tours.html">Tours</a></li>
+                    <li><a href="hotels.html">Dịch vụ</a></li>
+                    <li><a href="booking-history.html">Lịch sử</a></li>
+                    <li><a href="evaluations.html">Đánh giá</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Đối tác hợp tác</h4>
+                <div class="partners-list" aria-label="Đối tác hợp tác">
+                    <div class="partner-item">
+                        <a href="https://www.traveloka.com/vi-vn" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_1.jpg" alt="Đối tác 1">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.flightcentre.com.au/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_2.jpg" alt="Đối tác 2">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.ivivu.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_3.jpg" alt="Đối tác 3">
+                        </a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="https://www.americanexpress.com/" target="_blank" rel="noopener noreferrer">
+                            <img src="assets/images/partners/partner_4.jpg" alt="Đối tác 4">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Phương thức thanh toán</h4>
+                <div class="payments-list" aria-label="Đối tác thanh toán">
+                    <a href="https://www.visa.com" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_1.png" alt="Visa">
+                    </a>
+                    <a href="https://www.mastercard.com" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_2.png" alt="Mastercard">
+                    </a>
+                    <a href="https://www.vn.jcb/vi/index.html" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_3.png" alt="JCB">
+                    </a>
+                    <a href="https://www.momo.vn/" target="_blank" rel="noopener noreferrer" class="payment-item">
+                        <img src="assets/images/payments/payment_4.png" alt="Momo">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Viettravel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Chi Tiết Khách Sạn -->
+    <div id="hotel-modal" class="modal">
+        <div class="modal-content modal-lg">
+            <span class="close-btn">&times;</span>
+            <div id="hotel-modal-body"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
