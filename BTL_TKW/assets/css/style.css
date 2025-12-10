@@ -1,0 +1,1899 @@
+/* =========================================
+   1. CÀI ĐẶT CHUNG (RESET & VARIABLES)
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #00b894; /* Màu xanh chủ đạo */
+    --secondary-color: #0984e3;
+    --text-color: #2d3436;
+    --bg-light: #f5f6fa;
+    --white: #ffffff;
+    --dark: #2d3436;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   2. HEADER & MENU
+   ========================================= */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+.btn-contact {
+    padding: 8px 20px;
+    background: var(--primary-color);
+    color: var(--white) !important;
+    border-radius: 4px;
+}
+
+/* =========================================
+   3. HERO SECTION & BANNER
+   ========================================= */
+/* Dành cho trang chủ */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/bg_2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 30px;
+    font-weight: 600;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dành cho các trang con (Tours, Contact...) */
+.page-banner {
+    margin-top: 80px;
+    height: 300px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/bg_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.page-banner h2 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   4. CARDS (REGION, TOURS, DESTINATIONS)
+   ========================================= */
+.region-grid, .destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+/* Card 3 Miền */
+.region-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.region-card:hover {
+    transform: translateY(-5px);
+}
+
+.region-card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.region-info {
+    padding: 20px;
+    text-align: center;
+}
+
+/* -----------------------------------------------------------
+   GIAO DIỆN THẺ TOUR (STYLE MỚI - ĐÃ CẬP NHẬT)
+   ----------------------------------------------------------- */
+
+/* Lưới hiển thị tour */
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Điều chỉnh kích thước cột linh hoạt */
+    gap: 25px;
+    padding-bottom: 40px;
+}
+
+/* Khung thẻ Tour */
+.tour-card {
+    background: #ffffff;
+    border-radius: 12px; /* Bo góc mềm mại */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng đổ nhẹ tạo chiều sâu */
+    transition: all 0.3s ease;
+    cursor: pointer; /* Con trỏ chuột dạng tay khi hover */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f0f0f0; /* Viền siêu mỏng */
+}
+
+/* Hiệu ứng khi di chuột vào thẻ */
+.tour-card:hover {
+    transform: translateY(-5px); /* Nổi lên nhẹ */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* --- Phần Hình Ảnh --- */
+.tour-img-wrapper {
+    position: relative;
+    height: 200px; /* Chiều cao cố định cho ảnh */
+    overflow: hidden;
+}
+
+.tour-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ảnh lấp đầy khung mà không méo */
+    transition: transform 0.5s ease;
+}
+
+/* Zoom ảnh nhẹ khi hover */
+.tour-card:hover .tour-img-wrapper img {
+    transform: scale(1.1);
+}
+
+/* --- Phần Nội Dung --- */
+.tour-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1; /* Để thẻ có chiều cao bằng nhau */
+}
+
+/* Tiêu đề Tour */
+.tour-title {
+    margin: 0 0 12px 0;
+}
+
+.tour-title a {
+    color: #2d3436;
+    font-size: 1rem; /* Kích thước chữ vừa vặn */
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.3s;
+}
+
+.tour-card:hover .tour-title a {
+    color: var(--primary-color); /* Đổi màu xanh khi hover thẻ */
+}
+
+/* --- Dòng dưới cùng (Thời gian & Giá) --- */
+.tour-footer {
+    display: flex;
+    justify-content: space-between; /* Căn thời gian sang trái, giá sang phải */
+    align-items: center;
+    margin-top: auto; /* Đẩy xuống đáy */
+    padding-top: 10px;
+    border-top: 1px dashed #eee; /* Đường kẻ mờ ngăn cách */
+}
+
+/* Phần Thời gian (Bên trái) */
+.tour-time {
+    font-size: 0.85rem;
+    color: #636e72;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tour-time i {
+    color: #b2bec3;
+}
+
+/* Phần Giá tiền (Bên phải - Giống ảnh mẫu) */
+.tour-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Màu xanh chủ đạo */
+}
+
+/* Card Điểm đến (Destination) */
+.dest-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px;
+}
+
+.dest-card img {
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.dest-card:hover img {
+    transform: scale(1.1);
+}
+
+.dest-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: var(--white);
+    padding: 20px;
+}
+
+/* =========================================
+   5. BỘ LỌC & BẢNG LỊCH SỬ
+   ========================================= */
+.filters {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 12px 28px;
+    margin: 0 6px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+}
+
+/* Styling cho type-btn (loại dịch vụ) */
+.type-btn {
+    padding: 12px 28px;
+    margin: 0 6px;
+    border: 2px solid #ddd;
+    background: #f5f6fa;
+    color: var(--text-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.type-btn.active, .type-btn:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(9, 132, 227, 0.3);
+}
+
+/* Styling cho sort-select (sắp xếp) */
+#sort-select {
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    border: 2px solid var(--primary-color) !important;
+    background: #fff !important;
+    color: #333 !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 0.95rem !important;
+    min-width: 200px !important;
+}
+
+#sort-select:hover, #sort-select:focus {
+    border-color: var(--secondary-color) !important;
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.2) !important;
+    outline: none !important;
+}
+
+/* Bảng lịch sử */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.history-table th, .history-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    /* Căn dọc nội dung bảng: status và action nằm giữa theo chiều dọc */
+    vertical-align: middle;
+}
+
+.history-table th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.status-badge {
+    white-space: nowrap;
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1;
+    vertical-align: middle;
+    background: #fff3d9;
+    color: #d97706;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.03) inset;
+}
+
+/* màu trạng thái xác nhận */
+.status-confirmed { background:#e6f9f0; color:#0b8a57; }
+
+.btn-delete {
+    padding: 5px 10px;
+    background: #ff7675;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Khoảng cách giữa các nút trong cột Hành động của bảng lịch sử */
+.history-table td:last-child {
+    /* hiển thị theo flex, căn giữa theo chiều dọc, các nút nằm trên cùng một hàng */
+    display: flex;
+    align-items: center;     /* căn giữa theo chiều dọc để cả 2 nút nằm cùng hàng */
+    justify-content: flex-end;
+    gap: 14px;               /* khoảng cách giữa các nút */
+    padding-top: 0;          /* loại bỏ khoảng cách trên gây lệch */
+    position: relative;
+}
+
+/* Đặt nút Hủy inline (không tuyệt đối) để nó nằm cùng hàng với nút Đánh giá */
+.history-table td:last-child .btn-delete {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+/* nút đánh giá giữ nguyên, căn giữa theo chiều dọc */
+.history-table td:last-child .evaluate-btn {
+    position: relative;
+    z-index: 1;
+    align-self: center;
+}
+
+/* Column widths (đã bỏ cột giá) */
+.history-table th.col-id, .history-table td.col-id { width:8%; }
+.history-table th.col-name, .history-table td.col-name { width:52%; }
+.history-table th.col-date, .history-table td.col-date { width:12%; text-align:left; }
+.history-table th.col-people, .history-table td.col-people { width:8%; text-align:left; }
+.history-table th.col-status, .history-table td.col-status { width:10%; text-align:left; }
+/* Cột Hành động: đưa nội dung ngay dưới tiêu đề, không chồng lên */
+.history-table th.col-action, .history-table td.col-action {
+    text-align: right;
+}
+
+/* Đặt cell action thành flex, căn về phía trên (dưới header) */
+.history-table td.col-action {
+    display: flex;
+    align-items: flex-start;     /* căn nội dung ở đầu cell (under header) */
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 6px;            /* giữ khoảng cách nhỏ so với header */
+    padding-bottom: 15px;
+    min-width: 160px;            /* đảm bảo đủ chỗ cho các nút */
+    white-space: nowrap;
+}
+
+/* Các nút trong cột action không dùng vị trí tuyệt đối */
+.history-table td.col-action .btn-delete,
+.history-table td.col-action .evaluate-btn,
+.history-table td.col-action .btn-primary {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+    z-index: 1;
+    align-self: flex-start;      /* giữ cùng dòng, bắt đầu từ trên */
+}
+
+/* Điều chỉnh kích thước nút đánh giá để không che khuất */
+.history-table .btn-primary {
+    padding: 8px 12px;
+    border-radius: 10px;
+    min-width: 90px;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+}
+
+.history-table .btn-delete {
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+/* Responsive: nén kích thước nếu màn hình nhỏ */
+@media (max-width: 600px) {
+  .history-table td.col-action { min-width: 120px; gap:8px; padding-top:6px; }
+  .history-table .btn-primary { padding:6px 10px; min-width:70px; font-size:0.9rem; }
+  .history-table .btn-delete { padding:6px 8px; }
+}
+
+/* =========================================
+   6. TRANG LIÊN HỆ
+   ========================================= */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    width: 30px;
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: #eee;
+    color: var(--text-color);
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.contact-form-box {
+    flex: 1.5;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 300px;
+}
+
+.contact-form-box h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.contact-form-box input, .contact-form-box textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* =========================================
+   7. MODAL (POPUP ĐẶT TOUR) - GIAO DIỆN MỚI
+   ========================================= */
+.modal {
+    display: none; /* ẩn theo mặc định */
+    position: fixed;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.45);
+    z-index: 9999;
+}
+
+/* Khi cần hiển thị modal, thêm lớp .show */
+.modal.show {
+    display: flex;
+}
+  
+/* giữ các thuộc tính nội dung modal (scroll, max-height...) */
+.modal-content {
+    width: 100%;
+    max-width: 640px;
+    max-height: calc(100vh - 80px);
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* make the form area scrollable */
+.modal-content form {
+    padding: 20px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto;
+}
+
+/* ensure headings/content above the form don't shrink weirdly */
+.modal-content > h3,
+.modal-content > p,
+.modal-content .close-btn {
+    flex: 0 0 auto;
+}
+
+/* small-screen tweaks */
+@media (max-width: 480px) {
+    .modal-content {
+        max-width: 100%;
+        max-height: calc(100vh - 40px);
+        border-radius: 8px;
+    }
+    .modal-content form {
+        padding: 16px;
+    }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Tiêu đề Form */
+.modal-content h3 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+/* Dòng hiển thị tên Tour */
+#selected-tour-name {
+    text-align: center;
+    display: block;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 15px;
+}
+
+/* Nút đóng (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #f1f1f1;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-btn:hover {
+    background: #ff7675;
+    color: #fff;
+}
+
+/* Các ô nhập liệu */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: #f9f9f9;
+    color: var(--text-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    background-color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0, 184, 148, 0.2);
+    outline: none;
+}
+
+/* Nút Xác nhận */
+.modal-content button[type="submit"],
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #00a76d 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: var(--transition);
+    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modal-content button[type="submit"]:hover,
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 184, 148, 0.4);
+}
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+footer {
+    background: #00a383;
+    color: #ccc;
+    padding-top: 50px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-col h3, .footer-col h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* =========================================
+   9. HOTEL CARD & GRID
+   ========================================= */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.hotel-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.hotel-card-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hotel-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.hotel-card:hover .hotel-card-image img {
+    transform: scale(1.1);
+}
+
+.hotel-card-rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #f39c12;
+}
+
+.hotel-card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.hotel-card-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.hotel-card-location {
+    display: flex;
+    align-items: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.hotel-card-location i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.hotel-card-amenities {
+    margin-bottom: 15px;
+}
+
+.hotel-card-amenity {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.hotel-card-price {
+    color: #e74c3c;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hotel-card-button {
+    margin-top: auto;
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hotel-card-button:hover {
+    background: #00a383;
+}
+
+/* =========================================
+   10. SEARCH RESULTS
+   ========================================= */
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.result-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.result-card-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.result-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.result-card:hover .result-card-image img {
+    transform: scale(1.05);
+}
+
+.result-card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 184, 148, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.result-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.result-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.result-card-meta {
+    display: flex;
+    align-items: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.result-card-meta i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.result-card-description {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.result-card-price {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.result-card-button {
+    margin-top: auto;
+    width: 100%;
+    padding: 10px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.result-card-button:hover {
+    background: #00a383;
+}
+
+/* =========================
+   11. RESPONSIVE TWEAKS (tablet / mobile)
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .page-banner h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-title h3 {
+        font-size: 1.5rem;
+    }
+
+    .region-grid, .destination-grid, .tour-grid, .hotel-grid, .search-results-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .contact-wrapper {
+        gap: 30px;
+    }
+
+    .history-table th, .history-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .page-banner {
+        height: 200px;
+    }
+
+    .page-banner h2 {
+        font-size: 1.3rem;
+    }
+
+    .region-grid, .destination-grid, .tour-grid, .hotel-grid, .search-results-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .filter-btn {
+        padding: 6px 15px;
+        margin: 3px;
+        font-size: 0.85rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px 15px;
+    }
+
+    .form-group input {
+        padding: 10px 12px;
+    }
+
+    .history-table th, .history-table td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .sort-box {
+        flex-direction: column;
+    }
+}
+
+.copyright {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #444;
+    background: #222;
+}
+
+/* =========================================
+   DETAIL BOX STYLING (Hotel & Services)
+   ========================================= */
+.detail-header {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.detail-header .header-content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.detail-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.detail-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafb 100%);
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    border: 2px solid #f0f0f0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+.detail-box:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 12px 32px rgba(0, 184, 148, 0.12);
+    transform: translateY(-2px);
+}
+
+.detail-box h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail-box h3 i {
+    font-size: 1.4rem;
+}
+
+.detail-box p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.detail-box p + p {
+    margin-top: 12px;
+}
+
+.detail-box strong {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+/* Grid Layout for main-content and sidebar */
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal lớn cho hotel details */
+.modal-lg .modal-content {
+    max-width: 800px;
+}
+
+.modal-lg {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#hotel-modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+#hotel-modal-body h2 {
+    grid-column: 1 / -1;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#hotel-modal-body .hotel-detail-image {
+    grid-column: 1 / -1;
+    max-height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+#hotel-modal-body .hotel-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#hotel-modal-body .hotel-detail-info {
+    grid-column: 1 / -1;
+}
+
+#hotel-modal-body .info-section {
+    background: linear-gradient(135deg, #f8fafb 0%, #eef5f9 100%);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-color);
+}
+
+#hotel-modal-body .info-section h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+#hotel-modal-body .info-section p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+#hotel-modal-body .amenities-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+}
+
+#hotel-modal-body .amenities-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    font-size: 1rem;
+}
+
+#hotel-modal-body .amenities-list li::before {
+    content: "✓";
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+#hotel-modal-body .hotel-detail-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#hotel-modal-body .price-box {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #00a76d 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 184, 148, 0.3);
+}
+
+#hotel-modal-body .price-box p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+#hotel-modal-body .price-box .price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#hotel-modal-body .btn-book-now {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#hotel-modal-body .btn-book-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.3);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 0;
+    background: transparent; /* thay đổi nếu muốn nền khác */
+}
+
+.footer-logo img {
+    width: 200px;
+    max-width: 70%;
+    height: auto;
+    display: inline-block;
+}
+
+.footer-datetime {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    color: #cbd5d5;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* =========================================
+   12. PARTNERS SECTION
+   ========================================= */
+.partners-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(80px, 1fr));
+    gap: 12px;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.partner-item {
+    background: transparent;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.partner-item img {
+    max-width: 100%;
+    max-height: 48px;
+    object-fit: contain;
+    display: block;
+}
+
+.partner-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+/* Responsive: nhiều cột lên mobile */
+@media (max-width: 480px) {
+    .partners-list {
+        grid-template-columns: repeat(3, minmax(60px, 1fr));
+        gap: 8px;
+    }
+}
+
+/* =========================================
+   13. PAYMENT SECTION (2 logo / hàng)
+   ========================================= */
+.payments-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(72px, 1fr)); /* 2 logo trên 1 hàng */
+    gap: 12px;
+    align-items: center;
+    margin-top: 6px;
+    width: 100%;
+    max-width: 360px; /* điều chỉnh nếu muốn thu hẹp vùng chứa */
+}
+
+.payment-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    padding: 6px;
+    background: transparent;
+    border-radius: 8px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.payment-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.payment-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+.payment-item:focus,
+.payment-item:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* =========================================
+   14. CUSTOM TOUR DETAIL STYLE
+   ========================================= */
+
+/* Layout Flexbox 2 cột */
+.row-flex {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.col-left {
+  flex: 2.5; /* Chiếm khoảng 70% */
+}
+
+.col-right {
+  flex: 1; /* Chiếm khoảng 30% */
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .row-flex {
+    flex-direction: column;
+  }
+  .col-left,
+  .col-right {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* Styling Box nội dung */
+.detail-box-wrapper {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.box-heading {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.tour-highlight-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.tour-highlight-info p {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+.tour-highlight-info i {
+  width: 25px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.highlight-price {
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.text-content {
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+}
+
+/* Styling Lịch trình (Schedule) */
+.schedule-item {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.day-header {
+  background-color: #f1f1f1;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.day-badge {
+  background-color: #e67e22; /* Màu cam giống hình mẫu */
+  color: white;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-right: 15px;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.day-title {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.day-body {
+  padding: 20px;
+  background: #fff;
+}
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+}
+
+.activity-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.activity-list li::before {
+  content: "•";
+  color: #e67e22;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+/* Styling Sidebar */
+.sidebar-wrapper {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  position: sticky;
+  top: 100px; /* Để sidebar trượt theo khi cuộn */
+}
+
+.sidebar-heading {
+  text-align: center;
+  color: var(--secondary-color);
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.sidebar-tour-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px dashed #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar-tour-item:last-child {
+  border-bottom: none;
+}
+
+.sidebar-tour-item:hover {
+  background-color: #f9f9f9;
+}
+
+.sidebar-tour-item:hover .sidebar-name {
+  color: var(--primary-color);
+}
+
+.sidebar-img {
+  flex-shrink: 0;
+  width: 80px;
+  height: 60px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.sidebar-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  line-height: 1.3;
+  height: 2.6em;
+  overflow: hidden;
+}
+
+.sidebar-price {
+  font-size: 0.85rem;
+  color: #e74c3c;
+  font-weight: 700;
+}
+/* ===============================================================
+   15. SMALL INLINE STYLES FOR RATING STARS AND LAYOUT ADJUSTMENTS 
+    ===============================================================*/
+
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start; /* căn sao sang trái */
+    gap: 4px;
+    font-size: 32px;
+    margin-top: 8px;
+    float:left;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {
+    color: #ffc107; /* màu vàng khi hover hoặc checked */
+}
+
+.rating:hover label {
+    color: #ffc107;
+}
+
+.rating label:hover {
+    transform: scale(1.1);
+}
+
+.evaluation-box { max-width: 760px; margin: 0 auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 4px 18px rgba(0,0,0,0.06); }
+.field { margin-bottom: 14px; }
+.field label { display:block; margin-bottom:6px; font-weight:600; }
+#success-msg { display:none; padding:12px; border-radius:6px; background:#e6ffed; color:#056e22; margin-bottom:12px; }
+
+/* ================================
+   MENU MOBILE
+================================ */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2100;
+}
+
+.nav-toggle .hamburger {
+    width: 28px;
+    height: 3px;
+    background: #333;
+    position: relative;
+    display: block;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+    content: "";
+    width: 28px;
+    height: 3px;
+    background: #333;
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle .hamburger::before { top: -8px; }
+.nav-toggle .hamburger::after { top: 8px; }
+
+/* ========== MOBILE MODE ========== */
+@media (max-width: 768px) {
+
+    .nav-toggle {
+        display: block;
+        z-index: 2000;
+    }
+
+    nav {
+        position: fixed;
+        top: 80px;
+        right: 0;
+        width: 260px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        padding-top: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 20px;
+    }
+
+    /* Khi bật menu */
+    body.nav-open nav {
+        transform: translateX(0);
+    }
+}
+/* =========================================
+   BUTTON XÓA LỊCH SỬ (MỚI)
+   ========================================= */
+
+/* Vùng chứa nút để căn phải và tạo khoảng cách */
+.history-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end; /* Căn sang phải */
+    padding: 0 5px;
+}
+
+/* Style cho nút Xóa */
+.btn-clear-all {
+    background: linear-gradient(135deg, #ff7675 0%, #d63031 100%); /* Màu đỏ đẹp */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px; /* Bo tròn mềm mại */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(214, 48, 49, 0.3); /* Đổ bóng nhẹ */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa icon và chữ */
+}
+
+/* Hiệu ứng khi rê chuột */
+.btn-clear-all:hover {
+    transform: translateY(-3px); /* Nút nổi lên nhẹ */
+    box-shadow: 0 8px 20px rgba(214, 48, 49, 0.4);
+    background: linear-gradient(135deg, #ff6b6b 0%, #c0392b 100%);
+}
+
+/* Hiệu ứng khi nhấn */
+.btn-clear-all:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(214, 48, 49, 0.3);
+}
+
+/* Responsive trên mobile */
+@media (max-width: 600px) {
+    .btn-clear-all {
+        width: 100%;
+        justify-content: center;
+    }
+}
